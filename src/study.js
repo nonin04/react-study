@@ -69,22 +69,44 @@
 // func2("こんにちは2")
 
 
+// const myProfile = {
+//   nickname: "せやねん",
+//   age: 32
+// };
+
+// const message1 = `${myProfile.nickname}`;
+// console.log(message1)
+
+// //myProfileの値をそれぞれ一括でconstしてるイメージ
+// const { nickname, age } = myProfile;
+
+// const message2 = `名前は${nickname},${age}です`
+// console.log(message2)
+
+// const myProfile2 = ["せやねん", 32];
+
+
+// const [abc, def] = myProfile2
+// console.log(abc)
+
+
 const myProfile = {
-  nickname: "せやねん",
   age: 32
 };
 
-const message1 = `${myProfile.nickname}`;
-console.log(message1)
+//デフォルトちの設定
+const sayHello = (nickname) => {
+  if (nickname) {
+    console.log(`こんにちは${nickname}さん`)
+  }
+  else {
+    console.log(`ゲストさんこんちゃ`)
+  }
+  
+};
+sayHello("宮本");
 
-//myProfileの値をそれぞれ一括でconstしてるイメージ
-const { nickname, age } = myProfile;
+const {age, nickname = "ゲスト"} = myProfile;
 
-const message2 = `名前は${nickname},${age}です`
-console.log(message2)
-
-const myProfile2 = ["せやねん", 32];
-
-
-const [abc, def] = myProfile2
-console.log(abc)
+console.log(age);
+console.log(nickname);
