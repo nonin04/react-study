@@ -41,29 +41,50 @@
 
 
 
-const a = "せやねん";
-const age = "32";
+// const a = "せやねん";
+// const age = "32";
 
 
-//"私の名前はせやねんです。年齢は32歳です"としたい
+// //"私の名前はせやねんです。年齢は32歳です"としたい
 
-//従来の方法
-const message = "私の名前は" + a + "です。年齢は" + age + "です。";
+// //従来の方法
+// const message = "私の名前は" + a + "です。年齢は" + age + "です。";
 
-const message2 = `私の名前は${a}です`;
-console.log(message)
+// const message2 = `私の名前は${a}です`;
+// console.log(message)
+// console.log(message2)
+
+
+// function func1(str){
+//   console.log(str)
+// }
+
+// func1("今日は");
+
+
+// const func2 = str => str;
+
+// console.log(func2("こんにちは"))
+
+// func2("こんにちは2")
+
+
+const myProfile = {
+  nickname: "せやねん",
+  age: 32
+};
+
+const message1 = `${myProfile.nickname}`;
+console.log(message1)
+
+//myProfileの値をそれぞれ一括でconstしてるイメージ
+const { nickname, age } = myProfile;
+
+const message2 = `名前は${nickname},${age}です`
 console.log(message2)
 
-
-function func1(str){
-  console.log(str)
-}
-
-func1("今日は");
+const myProfile2 = ["せやねん", 32];
 
 
-const func2 = str => str;
-
-console.log(func2("こんにちは"))
-
-func2("こんにちは2")
+const [abc, def] = myProfile2
+console.log(abc)
