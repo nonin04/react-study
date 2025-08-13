@@ -112,14 +112,51 @@
 // console.log(nickname);
 
 
-const nickname = "せやねん";
-const age = 31;
+// const nickname = "せやねん";
+// const age = 31;
 
 
-//定義するオブジェクトのプロパティと設定する変数が同じ場合に使える省略記法
-const myProfile = {
-  nickname,
-  age
-}
+// //定義するオブジェクトのプロパティと設定する変数が同じ場合に使える省略記法
+// const myProfile = {
+//   nickname,
+//   age
+// }
 
-console.log(myProfile)
+// console.log(myProfile)
+
+
+//スプレッド構文
+const arr = [4,1,2,3];
+// console.log(arr1);
+// //配列の中身を処理して出力してくれる
+// console.log(...arr1)
+
+// const sumFunc = (num1, num2) => {
+//   console.log(num1 + num2)
+// };
+
+// sumFunc(arr[0], arr[1]);
+
+// sumFunc(...arr);
+
+
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, num3, ...arr3] = arr2;
+// console.log(num1)
+// console.log(num2)
+// console.log(num3)
+// console.log(arr3)
+
+//スプレッド構文　配列のコピー
+const arr4 = [12, 16];
+const arr5 = [34, 53];
+
+const arr6 = [...arr4]
+console.log(arr6)
+
+//これは中身が同じオブジェクトを参照するため
+//コピー元から分離できていない
+const arr8 = arr4
+
+const arr7 = [...arr4, ...arr5]
+console.log(arr7)
