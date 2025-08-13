@@ -90,23 +90,36 @@
 // console.log(abc)
 
 
-const myProfile = {
-  age: 32
-};
+// const myProfile = {
+//   age: 32
+// };
 
-//デフォルトちの設定
-const sayHello = (nickname) => {
-  if (nickname) {
-    console.log(`こんにちは${nickname}さん`)
-  }
-  else {
-    console.log(`ゲストさんこんちゃ`)
-  }
+// //デフォルトちの設定
+// const sayHello = (nickname) => {
+//   if (nickname) {
+//     console.log(`こんにちは${nickname}さん`)
+//   }
+//   else {
+//     console.log(`ゲストさんこんちゃ`)
+//   }
   
-};
-sayHello("宮本");
+// };
+// sayHello("宮本");
 
-const {age, nickname = "ゲスト"} = myProfile;
+// const {age, nickname = "ゲスト"} = myProfile;
 
-console.log(age);
-console.log(nickname);
+// console.log(age);
+// console.log(nickname);
+
+
+const nickname = "せやねん";
+const age = 31;
+
+
+//定義するオブジェクトのプロパティと設定する変数が同じ場合に使える省略記法
+const myProfile = {
+  nickname,
+  age
+}
+
+console.log(myProfile)
