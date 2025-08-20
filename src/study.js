@@ -126,7 +126,7 @@
 
 
 //スプレッド構文
-const arr = [4,1,2,3];
+// const arr = [4,1,2,3];
 // console.log(arr1);
 // //配列の中身を処理して出力してくれる
 // console.log(...arr1)
@@ -148,15 +148,71 @@ const arr = [4,1,2,3];
 // console.log(arr3)
 
 //スプレッド構文　配列のコピー
-const arr4 = [12, 16];
-const arr5 = [34, 53];
+// const arr4 = [12, 16];
+// const arr5 = [34, 53];
 
-const arr6 = [...arr4]
-console.log(arr6)
+// const arr6 = [...arr4]
+// console.log(arr6)
 
-//これは中身が同じオブジェクトを参照するため
-//コピー元から分離できていない
-const arr8 = arr4
+// //これは中身が同じオブジェクトを参照するため
+// //コピー元から分離できていない
+// const arr8 = arr4
 
-const arr7 = [...arr4, ...arr5]
-console.log(arr7)
+// const arr7 = [...arr4, ...arr5]
+// console.log(arr7)
+
+// const nicknameArr = ["宮本", "田中", "吉田"];
+
+// // for (let index = 0; index < nicknameArr.length; index++) {
+// //   console.log(nicknameArr[index]);
+// // };
+
+// console.log(nicknameArr);
+
+// const namesarr = nicknameArr.map((nickname) => console.log(nickname));
+
+// const array = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// const eqArray = array.filter((num) => {
+//   return num % 2 === 0
+// });
+
+
+// console.log(eqArray)
+
+// const numArr = [1, 2, 3, 4, 5];
+
+// const newArr = numArr.filter((num) => {
+//   return num % 2 === 1
+// });
+
+// console.log(newArr)
+
+
+
+// const nameArr = ["宮本", "安田", "広島", "永田", "宮本"];
+
+// const nameNewArr = nameArr.map((nameA)=> {
+//   if (nameA === "宮本") {
+//     return "本家"
+//   } else {
+//     return nameA
+//   }
+// })
+
+
+// console.log(nameNewArr)
+
+
+// const Num = 1300;
+
+// const formattedNum = typeof Num === 'number' ? Num.toLocaleString() : "数値を入力してください";
+// console.log(formattedNum)
+
+const val = null;
+
+if (val) {
+  console.log("truethy");
+} else {
+  console.log("falsy");
+}
