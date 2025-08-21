@@ -1,218 +1,108 @@
-//--udemy-reactの教材より-------------------------------
+// //letとconst
+// var var3 = "よろしく"
 
-// //var は再代入 ◯、変数の再宣言 ◯
-// var val1 = "var変数";
-// val1 = "varは上書きできる";
-// console.log(val1);
+// let var1 = "変数1"
 
-// //--------
-// //let は再代入 ◯ 、変数の再宣言 ×
-// let val2 = "var変数2";
-// console.log(val2)
+// const var2 = "変数2"
 
-// val2 = "よろしく";
-// console.log(val2);
 
-// //--------
-// //const は再代入 × 、変数の再宣言 ×
-// const val3 = "普遍な変数";
-// console.log(val3)
+// //letは上書き可能
+// //constは上書き不可
 
-// val3 = "可変かな？";
-// console.log(val3);
-
-//----------------------
-
-//constで作った配列のプロパティ自体は変更が可能
-// console.log("hello")
-// const val4 = {
-//   name:"せやねん",
+// const hash = {
+//   name: "宮本",
 //   age: 32,
 // };
 
-// console.log(val4.name);
-// val4.adress = "osaka";
-
-// console.log(val4.adress);
-
-// const val5 = ["dog", "cat"];
-
-// val5[0] = "bird";
+// const arr = [
+//   "宮本",
+//   32
+// ]
+// console.log(hash)
+// console.log(arr)
 
 
+// const name1 = "宮本"
 
-// const a = "せやねん";
-// const age = "32";
-
-
-// //"私の名前はせやねんです。年齢は32歳です"としたい
-
-// //従来の方法
-// const message = "私の名前は" + a + "です。年齢は" + age + "です。";
-
-// const message2 = `私の名前は${a}です`;
-// console.log(message)
-// console.log(message2)
+// console.log(`私の名前は${name1}です`)
 
 
-// function func1(str){
-//   console.log(str)
+// //アロー関数
+// //ES2015
+
+
+// const func1 = function(you) {
+//   return `よろしくだぜ${you}`;
 // }
 
-// func1("今日は");
 
-
-// const func2 = str => str;
-
-// console.log(func2("こんにちは"))
-
-// func2("こんにちは2")
-
-
-// const myProfile = {
-//   nickname: "せやねん",
-//   age: 32
-// };
-
-// const message1 = `${myProfile.nickname}`;
-// console.log(message1)
-
-// //myProfileの値をそれぞれ一括でconstしてるイメージ
-// const { nickname, age } = myProfile;
-
-// const message2 = `名前は${nickname},${age}です`
-// console.log(message2)
-
-// const myProfile2 = ["せやねん", 32];
-
-
-// const [abc, def] = myProfile2
-// console.log(abc)
-
-
-// const myProfile = {
-//   age: 32
-// };
-
-// //デフォルトちの設定
-// const sayHello = (nickname) => {
-//   if (nickname) {
-//     console.log(`こんにちは${nickname}さん`)
-//   }
-//   else {
-//     console.log(`ゲストさんこんちゃ`)
-//   }
-  
-// };
-// sayHello("宮本");
-
-// const {age, nickname = "ゲスト"} = myProfile;
-
-// console.log(age);
-// console.log(nickname);
-
-
-// const nickname = "せやねん";
-// const age = 31;
-
-
-// //定義するオブジェクトのプロパティと設定する変数が同じ場合に使える省略記法
-// const myProfile = {
-//   nickname,
-//   age
+// const func2 = (you) => {
+// return `よろしくな${you}`
 // }
 
-// console.log(myProfile)
+// const func3 = you => you
 
+// console.log(func3("ハロー"))
 
-//スプレッド構文
-// const arr = [4,1,2,3];
-// console.log(arr1);
-// //配列の中身を処理して出力してくれる
-// console.log(...arr1)
+// console.log(func1("ヘッヘッヘ"))
+// console.log(func2("ヘッヘッヘ"))
 
-// const sumFunc = (num1, num2) => {
-//   console.log(num1 + num2)
+// //分割代入
+
+// const myProfile = {
+//   names: "宮本",
+//   age: 30,
+// }
+
+// const {names, age} = myProfile
+
+// console.log(`${names}は${age}`)
+ 
+// const hello = (hi = "hello") => {
+//   console.log(`${hi}`)
 // };
 
-// sumFunc(arr[0], arr[1]);
-
-// sumFunc(...arr);
-
-
-// const arr2 = [1, 2, 3, 4, 5];
-// const [num1, num2, num3, ...arr3] = arr2;
-// console.log(num1)
-// console.log(num2)
-// console.log(num3)
-// console.log(arr3)
-
-//スプレッド構文　配列のコピー
-// const arr4 = [12, 16];
-// const arr5 = [34, 53];
-
-// const arr6 = [...arr4]
-// console.log(arr6)
-
-// //これは中身が同じオブジェクトを参照するため
-// //コピー元から分離できていない
-// const arr8 = arr4
-
-// const arr7 = [...arr4, ...arr5]
-// console.log(arr7)
-
-// const nicknameArr = ["宮本", "田中", "吉田"];
-
-// // for (let index = 0; index < nicknameArr.length; index++) {
-// //   console.log(nicknameArr[index]);
-// // };
-
-// console.log(nicknameArr);
-
-// const namesarr = nicknameArr.map((nickname) => console.log(nickname));
-
-// const array = [1, 2, 3, 4, 5, 6, 7, 8];
-
-// const eqArray = array.filter((num) => {
-//   return num % 2 === 0
-// });
-
-
-// console.log(eqArray)
-
-// const numArr = [1, 2, 3, 4, 5];
-
-// const newArr = numArr.filter((num) => {
-//   return num % 2 === 1
-// });
-
-// console.log(newArr)
+// hello();
 
 
 
-// const nameArr = ["宮本", "安田", "広島", "永田", "宮本"];
+// const arrs = {
+//   namee: "宮本",
+// };
 
-// const nameNewArr = nameArr.map((nameA)=> {
-//   if (nameA === "宮本") {
-//     return "本家"
-//   } else {
-//     return nameA
-//   }
-// })
+// const {namee, ages = "設定されていません" } = arrs;
+// console.log(ages)
 
 
-// console.log(nameNewArr)
+// これらを説明できるようになる -------------------------
+//letとconstの違い
+//テンプレート文字列 ``
+//アロー関数 () => {}
+//分割代入 {} []
+//デフォルト値  変数 = ""
+//スプレッド構文 ...
+//map,filter 
+//三項演算子 ? :
 
+// letとconstの違いは
+// letは再代入が可能, constは再代入ができない
 
-// const Num = 1300;
+// テンプレート文字列とは
+// 文字列の中で変数を展開するための記法 `私の名前は${myName}です`
 
-// const formattedNum = typeof Num === 'number' ? Num.toLocaleString() : "数値を入力してください";
-// console.log(formattedNum)
+// アロー関数は
+// ファンクションをより書きやすくした記法
+// const func = (myName) => {
+//   console.log(myName)
+// }
+// func("宮本")
 
-const val = null;
+// 分割代入とは
+// 配列やハッシュから値を取り出して変数として宣言するための記法
+// const thisHash = {
+//   nickName: "みやもん",
+//   age: 24,
+// }
 
-if (val) {
-  console.log("truethy");
-} else {
-  console.log("falsy");
-}
+// const {nickName, age} = thisHash;
+// console.log(nickName)
