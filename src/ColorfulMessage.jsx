@@ -1,8 +1,8 @@
 export const ColorfulMessage = (props) => {
-
+  const {color, message } = props;
   const colorstyle = {
-    color: props.color
+    color: color
   }
 
-  return <h1 style={colorstyle}>{props.message}</h1>
+  return <h1 style={colorstyle}>{message}</h1>
 }
