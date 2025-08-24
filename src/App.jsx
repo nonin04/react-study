@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { ColorfulMessage } from "./ColorfulMessage";
 
 
@@ -8,10 +8,19 @@ import { ColorfulMessage } from "./ColorfulMessage";
 export const App = () => {
   const [num, setNum] = useState(0);
 
+  const [isShowFace, setIsShowFace] = useState(false);
   const onClickBtn = () => {
-    setNum((prev) => prev + 1);
-    setNum((prev) => prev + 1);
+    setNum((prev) => prev + 1); 
   }
+
+  if (num % 3 === 0) {
+    isShowFace || setIsShowFace(true)
+  } else {
+    isShowFace && setIsShowFace(false)
+  }
+  useEffect(() => {
+    console.log("HELLO")
+  }, [])
 
   return (
     <>
@@ -19,6 +28,9 @@ export const App = () => {
       <p>お元気ですか？</p>
       <button onClick={onClickBtn}>カウントアップ</button>
       <p>{num}</p>
+      { isShowFace && <img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001370767.jpg"></img> }
     </>
   )
 };
+
+//再レンダリング
