@@ -49,19 +49,25 @@ export const Todo = () => {
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompletetodos);
   }
+
+  const incompleteTodosMaxCount = 5
  
   return (
     <>
       <div className="mx-4 my-4 flex flex-col gap-2">
+
+
         <InputTodo 
           todoText={todoText} 
           onChangeText={onChangeTodoText} 
           onClickAdd={onClickAdd}
         />
+
         <IncompleteTodo
           todos={incompleteTodos}
           onClickComplete={onClickComplete} 
           onClickDelete={onClickDelete}
+          maxCount={incompleteTodosMaxCount}
         />
         <CompleteTodo 
           todos = {completeTodos}
