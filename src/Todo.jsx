@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import { ColorfulMessage } from "./ColorfulMessage";
-
+import { InputTodo } from "./components/inputTodo";
+import { IncompleteTodo } from "./components/incompleteTodo";
+import { CompleteTodo } from "./components/completeTodo";
 
 //コンポーネントの名前は大文字から始める
 //コンポーネントは一つのタグで囲われている必要がある(以下の場合だとdivで囲われていない状態だとエラーになる)
@@ -14,7 +16,7 @@ export const Todo = () => {
   const onChangeTodoText = (e) => {
     setTodoText(e.target.value)
   }
-  
+
   const onClickAdd = () => {
     if (todoText === "") return; 
     const newTodos = [...incompleteTodos, todoText];
@@ -51,42 +53,20 @@ export const Todo = () => {
   return (
     <>
       <div className="mx-4 my-4 flex flex-col gap-2">
-        <div className="inputarea bg-blue-400 py-4 px-2 rounded-xl">
-          <input placeholder="TODOを入力" value={todoText} onChange={onChangeTodoText} className="px-4 py-1 rounded-xl bg-white"/>
-          <button className="px-4 py-1 ml-2 bg-neutral-100 rounded-xl hover:bg-neutral-300" onClick={onClickAdd}>追加</button>
-        </div>
-        <div className="uncompletearea px-2 py-2 border-2 border-blue-400 rounded-xl">
-          <p className="px-4 title text-lg font-bold text-neutral-600">未完了のタスク</p>
-          <ul className="my-4">
-
-            {incompleteTodos.map((todo, index) => (
-                <li key={todo}>
-                  <div className="flex">
-                    <p>{todo}</p>
-                    <button onClick={() => onClickComplete(index)} className="px-4 py-1 ml-1 bg-neutral-200 rounded-xl hover:bg-blue-300">完了</button>
-                    <button onClick={() => onClickDelete(index)} className="px-4 py-1 ml-1 bg-neutral-200 rounded-xl hover:bg-blue-300">削除</button>
-                  </div>
-                </li>
-            ))}
-
-          </ul>
-        </div>
-
-        <div className="completearea px-2 py-2 border-2 border-blue-400 bg-blue-100 rounded-xl">
-          <p className="px-4 title text-lg font-bold text-neutral-600">完了済みのタスク</p>
-          <ul>
-
-            {completeTodos.map((todo, index) => (
-                <li key={todo}>
-                  <div className="flex">
-                    <p>{todo}</p>
-                    <button onClick={() => onClickBack(index)} className="px-4 py-1 ml-1 bg-neutral-200 rounded-xl hover:bg-blue-300">戻す</button>
-                  </div>
-                </li>
-            ))}
-
-          </ul>
-        </div>
+        <InputTodo 
+          todoText={todoText} 
+          onChangeText={onChangeTodoText} 
+          onClickAdd={onClickAdd}
+        />
+        <IncompleteTodo
+          todos={incompleteTodos}
+          onClickComplete={onClickComplete} 
+          onClickDelete={onClickDelete}
+        />
+        <CompleteTodo 
+          todos = {completeTodos}
+          onClickBack = {onClickBack}
+        />
       </div>
     </>
   )
